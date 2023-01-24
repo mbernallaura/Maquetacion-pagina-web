@@ -1,0 +1,123 @@
+$colorMain: #0075ff;
+$footerColor: #f4f8fe;
+
+@mixin btnSmModify{
+    font-size: 0.75rem;
+    padding: 0.1rem 1rem;
+}
+
+@mixin btnBase{
+    padding: 0.30rem 1.5rem;
+    border-radius: 0.25rem;
+}
+
+.btnMain{
+    @include btnBase();
+    background-color: $colorMain;
+    color: white;
+    border: none;
+    border: solid 1px $colorMain;
+
+    &:hover{
+        background-color: white;
+        color: $colorMain;
+    }
+
+    &S{
+        @extend .btnMain;
+        @include btnSmModify();
+    }
+}
+
+.btnSec{
+    @include btnBase();
+    color: black;
+    background-color: transparent;
+    border: none;
+
+    &:hover{
+        color: #888;
+    }
+
+    &S{
+        @extend .btnSec;
+        @include btnSmModify();
+    }
+}
+
+.mainMenu{
+    margin-bottom: 0;
+    li{
+        font-size: 1rem;
+        list-style: none;
+        display: inline;
+        margin-right: 2rem;
+
+        a{
+            color: black;
+            text-decoration: none;
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+.iconSm{
+    i{
+        font-size: 1.25rem;
+        padding: 0.4rem 0.65rem;
+        color: $colorMain;
+        border-radius: 58%;
+        box-shadow: 0 0 10px #00000055;
+    }
+}
+
+.benefit{
+    display: flex;
+    flex-direction: column;
+
+    i{
+        color: $colorMain;
+        font-size: 7.5rem;
+        text-align: center;
+    }
+
+    .description{
+        .title{
+            font-size: 2rem;
+            text-align: center;
+        }
+
+        .text{
+            color: #888;
+            font-weight: 600;
+            text-align: center;
+        }
+    }
+
+    .cta{
+        margin-top: 3rem;
+        color: $colorMain;
+        font-weight: 600;
+        text-align: center;
+    }
+}
+
+.iconDesc{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    i{
+        padding: 0;
+        color: $colorMain;
+        font-size: 10rem;
+    }
+
+    .title{
+        margin-top: -1rem;
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+}

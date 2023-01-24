@@ -1,0 +1,234 @@
+@use 'componentes' as comp;
+
+@mixin sectionDisplay{
+    width: 100%;
+    max-width: 992px;
+    margin: auto;
+    padding: 3rem;
+}
+
+html{
+    min-width: 100vw;
+}
+
+body{
+    padding: 0;
+    margin: 0;
+}
+
+.nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 4rem;
+    border-bottom: solid 1px #ddd;
+}
+
+.logo a img{
+    max-width: 7rem;
+}
+
+.secHome{
+    @include sectionDisplay();
+    display: flex;
+    align-items: center;
+
+    .homeCta{
+        flex: 1;
+
+        .ctaText{
+            color: comp.$colorMain;
+        }
+
+        .homeTitle{
+            width: 20rem;
+            font-size: 3rem;
+        }
+
+        .homeDescription{
+            width: 300px;
+        }
+
+        .leadMagnet{
+            
+            .inputCol{
+                max-width: 200px;
+            }
+        }
+    }
+}
+
+.secFeatures{
+    @include sectionDisplay();
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .intro{
+        text-align: center;
+
+        h3{
+            font-size: 1.8rem;
+        }
+
+        p{
+            font-size: 0.8rem;
+            color: #888;
+        }
+    }
+
+    .features{
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        margin: auto;
+
+        .text{
+            padding: 2rem 0;
+            flex: 1;
+
+            .feature{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+
+                .description{
+                    margin-left: 1rem ;
+                    max-width: 20rem;
+
+                    .titleFeature{
+                        font-size: 1.15rem;
+                    }
+
+                    .textFeature{
+                        font-size: 1rem;
+                    }
+                }
+            }
+        }
+
+        .imagen{
+            img{
+                max-width: 20rem;
+            }
+        }
+    }
+}
+
+.secBenefits{
+    border-top: 1px solid #ddd;
+    .intro{
+        @extend .secFeatures, .intro;
+    }
+
+    .benefitCards{
+        width: 100%;
+        padding: 0 2rem 2rem 2rem;
+    }
+}
+
+.secKpis{
+    width: 100%;
+    background-color: comp.$colorMain;
+    color: white;
+    padding: 4rem;
+
+    .kpi{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .number{
+            font-size: 3.5rem;
+            font-weight: 600;
+        }
+
+        .desc{
+            font-size: 0.9rem;
+            color: #ffffffaa;
+        }
+    }
+}
+
+.secOnboarding{
+    .intro{
+        @extend .secFeatures, .intro;
+    }
+
+    .steps{
+        padding: 0 7rem 5rem 7rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .stepSeparator{
+            flex: 1;
+            border-top: 2px solid #ddd;
+            margin: 0 1rem;
+        }
+    }
+
+}
+
+.secFooterCta{
+    background-color: comp.$footerColor;
+    padding: 5rem;
+    background-image: url(../img/bg.png);
+    background-repeat: no-repeat;
+    background-position: 100%;
+
+    .footerCta{
+        max-width: 50%;
+    .ctaTitle{
+        font-size: 2rem;
+    }
+
+    .ctaDescription{
+        font-size: 1.1rem;
+    }
+    }
+}
+
+@media (max-width: 768px){
+    .secOnboarding{
+        .steps{
+            flex-direction: column;
+            .iconDesc{
+                .title{
+                    text-align: center;
+                }
+            }
+        }
+    }
+
+    .secFooterCta{
+        background-image: none;
+
+        .footerCta{
+            max-width: 100%;
+            text-align: center;
+        }
+    }
+
+    .secBenefits{
+        .intro{
+            text-align: center; 
+        }
+
+        .intro h3{
+            font-size: 2rem;
+        }
+    }
+
+    .secFeatures{
+        h3{
+            font-size: 2rem;
+        }
+        .intro p{
+            font-size: 1rem;
+        } 
+
+
+    }
+}
